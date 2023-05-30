@@ -12,9 +12,9 @@ import lombok.ToString;
 public class Table {
 	private int tableNumber;
 	private int maxOccupancy;
-	private Status status;
+	private TableStatus status;
 
-	enum Status {
+	enum TableStatus {
 		OCCUPIED, AVAILABLE
 	}
 
