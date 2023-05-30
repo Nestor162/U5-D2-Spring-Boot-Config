@@ -1,6 +1,7 @@
 package com.nestorcicardini.D2;
 
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
@@ -17,8 +18,19 @@ public class OrderRunner implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		log.info("Stampando menu...");
+		System.out.println();
+		log.info("::::::::::::::::::::::: Orders ::::::::::::::::::::::::::");
+		configWithAnnotation();
 
+	}
+
+	public static void configWithAnnotation() {
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(
+				D2Application.class);
+
+		log.info(context.getBean("Order1").toString());
+
+		context.close();
 	}
 
 }
