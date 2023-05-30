@@ -29,6 +29,7 @@ public class OrderRunner implements CommandLineRunner {
 				D2Application.class);
 
 		log.info(context.getBean("Order1").toString());
+		log.info(context.getBean("Order2").toString());
 
 		context.close();
 	}

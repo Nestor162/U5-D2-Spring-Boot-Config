@@ -118,4 +118,14 @@ public class BeansConfiguration {
 		productsList.add(lemonade());
 		return new Order(productsList, 1, OrderStatus.IN_PROGRESS, 2, "14:00");
 	}
+
+	@Bean
+	Order Order2() {
+		List<Product> productsList = new ArrayList<>();
+		productsList.add(getSalamiPizza());
+		productsList.add(wine());
+		productsList.add(water());
+		productsList.add(mug());
+		return new Order(productsList, 1, OrderStatus.SERVED, 4, "21:00");
+	}
 }
