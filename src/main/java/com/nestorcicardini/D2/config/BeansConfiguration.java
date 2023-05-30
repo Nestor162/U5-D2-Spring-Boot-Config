@@ -8,6 +8,8 @@ import org.springframework.context.annotation.Configuration;
 
 import com.nestorcicardini.D2.entities.Drink;
 import com.nestorcicardini.D2.entities.Merchandise;
+import com.nestorcicardini.D2.entities.Order;
+import com.nestorcicardini.D2.entities.Order.OrderStatus;
 import com.nestorcicardini.D2.entities.Pizza;
 import com.nestorcicardini.D2.entities.Product;
 import com.nestorcicardini.D2.entities.Topping;
@@ -106,5 +108,14 @@ public class BeansConfiguration {
 	@Bean
 	Merchandise mug() {
 		return new Merchandise("Mug", 21.99, 0);
+	}
+
+	// Orders
+	@Bean
+	Order Order1() {
+		List<Product> productsList = new ArrayList<>();
+		productsList.add(getPizzaMargherita());
+		productsList.add(lemonade());
+		return new Order(productsList, 1, OrderStatus.IN_PROGRESS, 2, "14:00");
 	}
 }
