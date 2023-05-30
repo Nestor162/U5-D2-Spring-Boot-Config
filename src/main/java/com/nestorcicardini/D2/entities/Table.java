@@ -18,7 +18,7 @@ public class Table {
 		OCCUPIED, AVAILABLE
 	}
 
-	public Table(int tableNumber, int maxOccupancy, Status status) {
+	public Table(int tableNumber, int maxOccupancy, TableStatus status) {
 		super();
 		this.tableNumber = tableNumber;
 		this.maxOccupancy = maxOccupancy;
