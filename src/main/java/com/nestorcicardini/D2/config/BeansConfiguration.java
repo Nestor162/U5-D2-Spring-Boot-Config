@@ -116,7 +116,8 @@ public class BeansConfiguration {
 		List<Product> productsList = new ArrayList<>();
 		productsList.add(getPizzaMargherita());
 		productsList.add(lemonade());
-		return new Order(productsList, 1, OrderStatus.IN_PROGRESS, 2, "14:00");
+		return new Order(productsList, 1, OrderStatus.IN_PROGRESS, 2, "14:00",
+				2);
 	}
 
 	@Bean
@@ -126,6 +127,6 @@ public class BeansConfiguration {
 		productsList.add(wine());
 		productsList.add(water());
 		productsList.add(mug());
-		return new Order(productsList, 1, OrderStatus.SERVED, 4, "21:00");
+		return new Order(productsList, 1, OrderStatus.SERVED, 4, "21:00", 2);
 	}
 }
