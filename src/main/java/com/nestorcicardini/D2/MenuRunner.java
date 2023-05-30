@@ -12,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 // C'e un ordine dei runner (default = alfabetico)
 @Order(0) // Più basso è il numero prima viene eseguito
 
-public class MenuOrderRunner implements CommandLineRunner {
+public class MenuRunner implements CommandLineRunner {
 	// anche puo implementare ApplicationRunner
 
 	@Override
