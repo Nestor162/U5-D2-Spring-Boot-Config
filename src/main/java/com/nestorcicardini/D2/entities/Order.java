@@ -5,12 +5,10 @@ import java.util.List;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
 public class Order {
 	private List<Product> products;
 	private int orderNumber;
@@ -19,20 +17,32 @@ public class Order {
 	private String orderTime;
 	private double totalAmount;
 
-	enum OrderStatus {
+	public enum OrderStatus {
 		READY, IN_PROGRESS, SERVED
 	}
 
 	public Order(List<Product> products, int orderNumber,
-			OrderStatus orderStatus, int occupancy, String orderTime,
-			double totalAmount) {
+			OrderStatus orderStatus, int occupancy, String orderTime) {
 		super();
 		this.products = products;
 		this.orderNumber = orderNumber;
 		this.orderStatus = orderStatus;
 		Occupancy = occupancy;
 		this.orderTime = orderTime;
-		this.totalAmount = totalAmount;
+		setTotalAmount();
+	}
+
+	public void setTotalAmount() {
+		double total = products.stream().mapToDouble(Product::getPrice).sum();
+		this.totalAmount = total;
+	}
+
+	@Override
+	public String toString() {
+		return "Order [products=" + products + ", orderNumber=" + orderNumber
+				+ ", orderStatus=" + orderStatus + ", Occupancy=" + Occupancy
+				+ ", orderTime=" + orderTime + ", totalAmount=" + totalAmount
+				+ "]";
 	}
 
 }
